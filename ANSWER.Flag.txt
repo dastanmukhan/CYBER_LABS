@@ -1,0 +1,11 @@
+1.http://127.0.0.1:5000/?key=flag
+
+2. login : admin  password: admin!
+
+3.fetch("/secret/api/getflag", {
+  headers: {
+    "X-Secret-Key": "FLAG_C0DE"
+  }
+})
+.then(response => response.json())
+.then(data => console.log(data));
