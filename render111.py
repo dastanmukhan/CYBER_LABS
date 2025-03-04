@@ -8,7 +8,7 @@ def create_db():
     conn = sqlite3.connect('ctf.db')
     cursor = conn.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT, flag TEXT)")
-    cursor.execute("INSERT INTO users (username, password, flag) VALUES ('admin', 'admin!', 'CTF{second_flag}')")  # Установили пароль "admin!"
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, flag) VALUES ('admin', 'admin!', 'flag{second_flag}')")
     conn.commit()
     conn.close()
 
@@ -121,13 +121,14 @@ def stage_2():
         return render_template_string(f"""
             <h1>Поздравляем!</h1>
             <p>Ты нашел второй флаг: {flag[0]}</p>
-            <p>Теперь переходи к <a href="/stage3">третий этап</a>.</p>
+            <p>Теперь переходи к <a href="/stage_30">третий этап</a>.</p>
         """)
     else:
         return render_template_string("""
             <h1>Ошибка</h1>
             <p>Неправильное имя пользователя или пароль. Попробуй снова.>>>"!"<<<</p>
             <form action="/stage2" method="GET">
+                                      <script src="FlaG{CTF_ASTANA_00x4}"></script>
                 <input type="text" name="username" placeholder="Введите имя пользователя">
                 <input type="password" name="password" placeholder="Введите пароль">
                 <input type="submit" value="Отправить">
@@ -169,11 +170,84 @@ def stage_2():
         """)
 
 # Этап 3: Получение флага через API
-@app.route("/stage30")
+@app.route("/stage_30")
 def stage_3():
     return render_template_string("""
         <h1>Финальный этап</h1>
-        <p>Где-то на сервере спрятан тайный файл: /secret/api/getflag</p>
+        
+                                  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <script src="/static/auth.js"></script>
     """)
 
